@@ -24,6 +24,20 @@ man groff_ms
 
 * [GNU Groff Documentation](https://www.gnu.org/software/groff/)
 
+## Usage
+
+I use Fedora, but I install the following packages.
+
+```bash
+sudo dnf install --assumeyes groff groff-base groff-doc ghostscript
+```
+
+Then to build the `.ms` files, I use the following command.
+
+```bash
+groff -Tpdf -ms groff_ms_example.ms > groff_ms_example.pdf
+```
+
 ## MS Macros
 
 ### Comments

@@ -133,3 +133,60 @@ Example:
 .B word
 .B "multiple words bolded"
 ```
+
+## Self-Defined Macros
+
+### Better Bullets
+
+By default, to create a Item List, you use the `.IP` command and the list item
+on the following line. Like this:
+
+```groff
+.IP
+First Item
+```
+
+However, that doesn't provide an actual bullet or dash or anything signifying
+that it's a list list item. So, we provide 2 arguments to `.IP`.
+
+```groff
+.IP \(bu 2
+First Item
+```
+
+The `.IP` is standard, but the `\(bu` is an identifier for a bullet, or black
+dot. Then the `2` is how many spaces between the bullet and the text.
+
+We don't want to type that every time for a long list, so let's create a
+self-defined macro inline.
+
+```groff
+.de BL
+.IP \(bu 2
+..
+```
+
+This defines a new macro called `.BL` to perform what `.IP \(bu 2` does. This is
+handy for making long macro commands shorter. Just, for the love all that is
+good, please document your macros so future people and luddites can understand
+what you're doing. Now you can call your macro like this:
+
+```groff
+.BL
+First Item
+.BL
+Second Item
+.BL
+Third Item
+```
+These `.de` blocks can be put into separate files. You can then `.so` the file
+into your parent document. This would look like `.so mymacros.tmac` and then the
+`.BL` would function as normal, keeping the main source clean.
+
+### Sourcing self-defined macros
+
+Sourcing a self-defined macro package is fairly easy. From what I've seen, these
+macro packages are given the `.tmac` file extension. These just contain various
+`gtroff` registers and other macros that are redefined or aliased. This helps
+clean up the main source files so that they're not littered with formatting or
+definition blocks.

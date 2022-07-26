@@ -18,7 +18,6 @@ tasks:
 
   groff-ms:
     desc: Build the Groff MS PDF
-    dir: groff_ms
     cmds:
-      - ../groff.sh -Tpdf -ms groff_ms_example.ms > groff_ms_example.pdf
+      - ./groff.sh -Tpdf -ms groff_ms/groff_ms_example.ms > groff_ms/groff_ms_example.pdf
 ...

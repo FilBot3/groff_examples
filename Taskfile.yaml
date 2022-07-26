@@ -1,0 +1,24 @@
+---
+# https://taskfile.dev
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  podman-build:
+    desc: Build GNU Groff Container Image
+    cmds:
+      - podman build -f GNU_Groff.containerfile -t localhost/groff:latest .
+
+  groff-ms:
+    desc: Build the Groff MS PDF
+    dir: groff_ms
+    cmds:
+      - ../groff.sh -Tpdf -ms groff_ms_example.ms > groff_ms_example.pdf
+...

@@ -17,7 +17,13 @@ LaTeX does this better.
 I use Fedora, but I install the following packages.
 
 ```bash
-sudo dnf install --assumeyes groff groff-base groff-doc ghostscript
+sudo dnf install --assumeyes \
+  groff \
+  groff-base \
+  groff-doc \
+  groff-perl \
+  perl-IO-Compress \
+  ghostscript
 ```
 
 Then to build the `.ms` files, I use the following command.

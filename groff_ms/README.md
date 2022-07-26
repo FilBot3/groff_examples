@@ -6,6 +6,9 @@ Groff MS Macros are useful for report writing as well as just general writing
 for formal documents. The following is not a complete write up or regurgitation
 of the GNU Groff MS Macro package documentation.
 
+I would just use a container via Podman or Docker to run a Linux distro that has
+GNU Groff available in it with all the other tools.
+
 I had to put this into its own document because the comments were being
 interpreted literally and causing issues in the end result document. TexLive
 LaTeX does this better.
